@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 public enum ErrorCode {
     EMAIL_ALREADY_EXIST(HttpStatus.BAD_REQUEST,  "This email already exists"),
     PASSWORD_NOT_MATCHED(HttpStatus.BAD_REQUEST,  "Password not matched"),
+    INPUT_VALUE_MISSING(HttpStatus.BAD_REQUEST,  "Input value is missing"),
 
     MEMBER_NOT_FOUND(HttpStatus.NOT_FOUND,  "This member is not found"),
 
