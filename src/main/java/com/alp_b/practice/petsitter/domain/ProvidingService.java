@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class PossibleDays {
+public class ProvidingService {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,11 +21,11 @@ public class PossibleDays {
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
-    private DayOfTheWeek dayOfTheWeek;
+    private PetService petService;
 
     @Builder
-    public PossibleDays(PetSitter petSitter, DayOfTheWeek dayOfTheWeek) {
+    public ProvidingService(PetSitter petSitter, PetService petService) {
         this.petSitter = petSitter;
-        this.dayOfTheWeek = dayOfTheWeek;
+        this.petService = petService;
     }
 }

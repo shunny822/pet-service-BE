@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class PetServices {
+public class PetService {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
