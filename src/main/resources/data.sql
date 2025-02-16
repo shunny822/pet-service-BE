@@ -1,6 +1,9 @@
 insert into authority (name)
 values ('일반 사용자'), ('펫시터'), ('관리자');
 
+insert into member (email, password, name, phone_number, authority_id, deleted, suspended)
+values ('email@naver.com', 'q0e89w7rq0ew978r09q8w7er', 'suhyun', '010-0000-0000', 1, false, false);
+
 insert into day_of_the_week (day_name)
 values ('월요일'),
        ('화요일'),
@@ -18,7 +21,7 @@ values ('강아지'),
        ('뱀'),
        ('설치류');
 
-insert into pet_services (type)
+insert into pet_service (type)
 values ('산책'),
        ('밥 주기'),
        ('목욕'),

@@ -12,6 +12,9 @@ public enum ErrorCode {
     INPUT_VALUE_MISSING(HttpStatus.BAD_REQUEST,  "Input value is missing"),
 
     MEMBER_NOT_FOUND(HttpStatus.NOT_FOUND,  "This member is not found"),
+    PET_CLASSIFICATION_NOT_FOUND(HttpStatus.NOT_FOUND,  "This pet classification is not found"),
+    DAY_NOT_FOUND(HttpStatus.NOT_FOUND,  "This day of the week is not found"),
+    SERVICE_NOT_FOUND(HttpStatus.NOT_FOUND,  "This service is not found"),
 
     PASSWORD_HASHING_FAILED(HttpStatus.INTERNAL_SERVER_ERROR,  "Password hashing is failed"),;
 

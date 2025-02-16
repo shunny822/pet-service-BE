@@ -38,6 +38,9 @@ public class PetSitter {
     @NotNull
     private boolean active = Boolean.FALSE;
 
+    @Version
+    private Long version;
+
     @Builder
     public PetSitter(Long id, Member member, String address, LocalTime startTime, LocalTime endTime, Integer pricePerHour) {
         this.id = id;
