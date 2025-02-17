@@ -1,15 +1,17 @@
 package com.alp_b.practice.petsitter.service.impl;
 
+import com.alp_b.practice.codeGroup.domain.CodeGroup;
+import com.alp_b.practice.codeGroup.repository.CodeGroupRepository;
 import com.alp_b.practice.common.exception.ErrorCode;
 import com.alp_b.practice.common.exception.custom.NotFoundException;
 import com.alp_b.practice.member.domain.Member;
 import com.alp_b.practice.member.repository.MemberRepository;
-import com.alp_b.practice.codeGroup.domain.CodeGroup;
-import com.alp_b.practice.codeGroup.repository.CodeGroupRepository;
 import com.alp_b.practice.petsitter.domain.*;
 import com.alp_b.practice.petsitter.dto.CreatePetSitterRequest;
+import com.alp_b.practice.petsitter.dto.PetSitterPreviewResponse;
 import com.alp_b.practice.petsitter.repository.*;
 import com.alp_b.practice.petsitter.service.PetSitterService;
+import jakarta.persistence.Tuple;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -99,6 +101,21 @@ public class PetSitterServiceImpl implements PetSitterService {
 
             providingServiceRepository.save(providingService);
         }
+    }
+
+    @Override
+    public List<PetSitterPreviewResponse> findPetSittersByLocation(String location) {
+        List<Tuple> petSitters =  petSitterRepository.findByLocation(location);
+
+        return petSitters.stream()
+                .map(tuple -> {
+                    return PetSitterPreviewResponse.of(
+                            tuple.get(0, Long.class),
+                            tuple.get(1, String.class),
+                            tuple.get(2, String.class),
+                            tuple.get(3, Integer.class));
+                })
+                .toList();
     }
 
 }
