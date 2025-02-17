@@ -20,9 +20,9 @@ import java.util.List;
 public class CodeDetailController {
     private final CodeDetailService codeDetailService;
 
-    @GetMapping
-    public ResponseEntity<CodeDetailListResponse> findCodeDetails() {
-        List<CodeDetail> codeDetails = codeDetailService.findAllCodeDetail();
+    @GetMapping("/{codeGroupId}")
+    public ResponseEntity<CodeDetailListResponse> findCodeDetails(@PathVariable Integer codeGroupId) {
+        List<CodeDetail> codeDetails = codeDetailService.findAllCodeDetail(codeGroupId);
         List<CodeDetailResponse> codeDetailResponses = new ArrayList<>();
 
         for (CodeDetail codeDetail : codeDetails) {
