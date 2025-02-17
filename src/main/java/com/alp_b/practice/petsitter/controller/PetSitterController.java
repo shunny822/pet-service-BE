@@ -44,4 +44,11 @@ public class PetSitterController {
 
         return ResponseEntity.ok(petSitterDetailResponse);
     }
+
+    @DeleteMapping("/{petSitterId}")
+    public ResponseEntity<String> deletePetSitter(@PathVariable Long petSitterId) {
+        petSitterService.deletePetSitter(petSitterId);
+
+        return ResponseEntity.ok("PetSitter is deleted successfully.");
+    }
 }

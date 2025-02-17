@@ -10,4 +10,5 @@ public interface PetSitterService {
     void createPetSitterRequest(CreatePetSitterRequest createPetSitterRequest);
     List<PetSitterPreviewResponse> findPetSittersByLocation(String location);
     PetSitterDetailResponse findPetSitterDetail(Long petSitterId);
+    void deletePetSitter(Long petSitterId);
 }

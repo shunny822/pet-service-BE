@@ -159,4 +159,15 @@ public class PetSitterServiceImpl implements PetSitterService {
         );
     }
 
+    @Override
+    public void deletePetSitter(Long petSitterId) {
+        Optional<PetSitter> petSitter = petSitterRepository.findById(petSitterId);
+
+        if (petSitter.isEmpty()) {
+            throw new NotFoundException(ErrorCode.PET_SITTER_NOT_FOUND);
+        }
+
+        petSitterRepository.delete(petSitter.get());
+    }
+
 }

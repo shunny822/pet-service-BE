@@ -16,6 +16,7 @@ public enum ErrorCode {
     CODE_DETAIL_NOT_FOUND(HttpStatus.NOT_FOUND,  "This code detail is not found"),
     DAY_NOT_FOUND(HttpStatus.NOT_FOUND,  "This day of the week is not found"),
     SERVICE_NOT_FOUND(HttpStatus.NOT_FOUND,  "This service is not found"),
+    PET_SITTER_NOT_FOUND(HttpStatus.NOT_FOUND,  "This pet sitter is not found"),
 
     PASSWORD_HASHING_FAILED(HttpStatus.INTERNAL_SERVER_ERROR,  "Password hashing is failed"),;
 
