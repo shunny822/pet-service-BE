@@ -27,7 +27,11 @@ public class CodeGroupServiceImpl implements CodeGroupService {
 
     @Override
     public void createCodeGroup(CreateCodeGroupRequest createCodeGroupRequest) {
-        CodeGroup codeGroup = CodeGroup.builder().classification(createCodeGroupRequest.classification()).build();
+        CodeGroup codeGroup = CodeGroup.builder()
+                .id(createCodeGroupRequest.groupId())
+                .classification(createCodeGroupRequest.classification())
+                .build();
+
         codeGroupRepository.save(codeGroup);
     }
 

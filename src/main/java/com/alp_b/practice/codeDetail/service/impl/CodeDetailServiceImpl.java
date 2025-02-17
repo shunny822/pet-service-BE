@@ -36,6 +36,7 @@ public class CodeDetailServiceImpl implements CodeDetailService {
         }
 
         CodeDetail codeDetail = CodeDetail.builder()
+                .code(createCodeDetailRequest.code())
                 .breed(createCodeDetailRequest.breed())
                 .codeGroup(codeGroup.get())
                 .build();

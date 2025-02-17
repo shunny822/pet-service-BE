@@ -15,7 +15,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class CodeDetail extends BaseTimeEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer code;
 
     @NotBlank
@@ -26,7 +25,8 @@ public class CodeDetail extends BaseTimeEntity {
     private CodeGroup codeGroup;
 
     @Builder
-    public CodeDetail(String breed, CodeGroup codeGroup) {
+    public CodeDetail(Integer code, String breed, CodeGroup codeGroup) {
+        this.code = code;
         this.breed = breed;
         this.codeGroup = codeGroup;
     }

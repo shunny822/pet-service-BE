@@ -13,13 +13,13 @@ values ('월요일'),
        ('토요일'),
        ('일요일');
 
-insert into code_group (classification)
-values ('강아지'),
-       ('고양이'),
-       ('새'),
-       ('도마뱀'),
-       ('뱀'),
-       ('설치류');
+insert into code_group (id, classification)
+values (1000, '강아지'),
+       (2000, '고양이'),
+       (3000, '새'),
+       (4000, '도마뱀'),
+       (5000, '뱀'),
+       (6000, '설치류');
 
 insert into pet_service (type)
 values ('산책'),

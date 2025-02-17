@@ -1,4 +1,4 @@
 package com.alp_b.practice.codeDetail.dto;
 
-public record CreateCodeDetailRequest(Integer codeGroupId, String breed) {
+public record CreateCodeDetailRequest(Integer code, Integer codeGroupId, String breed) {
 }
