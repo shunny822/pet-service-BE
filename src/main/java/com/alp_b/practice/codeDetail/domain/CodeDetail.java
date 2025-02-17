@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -23,4 +24,10 @@ public class CodeDetail extends BaseTimeEntity {
     @NotNull
     @ManyToOne
     private CodeGroup codeGroup;
+
+    @Builder
+    public CodeDetail(String breed, CodeGroup codeGroup) {
+        this.breed = breed;
+        this.codeGroup = codeGroup;
+    }
 }
