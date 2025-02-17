@@ -17,4 +17,10 @@ public interface PetSitterRepository extends JpaRepository<PetSitter, Long> {
             "WHERE p.active = true " +
             "AND p.address LIKE CONCAT('%', :location, '%')")
     List<Tuple> findByLocation(@Param("location") String location);
+
+    @Query("SELECT p.id, m.name, m.email, m.phoneNumber, p.address, p.startTime, p.endTime, p.pricePerHour " +
+            "FROM PetSitter p " +
+            "JOIN p.member m " +
+            "WHERE p.id = :petSitterId ")
+    Tuple findDetailById(@Param("petSitterId") Long petSitterId);
 }

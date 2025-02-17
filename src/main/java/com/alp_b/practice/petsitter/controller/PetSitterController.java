@@ -1,6 +1,7 @@
 package com.alp_b.practice.petsitter.controller;
 
 import com.alp_b.practice.petsitter.dto.CreatePetSitterRequest;
+import com.alp_b.practice.petsitter.dto.PetSitterDetailResponse;
 import com.alp_b.practice.petsitter.dto.PetSitterListResponse;
 import com.alp_b.practice.petsitter.dto.PetSitterPreviewResponse;
 import com.alp_b.practice.petsitter.service.PetSitterService;
@@ -37,5 +38,10 @@ public class PetSitterController {
         return ResponseEntity.ok(new PetSitterListResponse(petSitters));
     }
 
+    @GetMapping("/{petSitterId}")
+    public ResponseEntity<PetSitterDetailResponse> findPetSitterDetail(@PathVariable Long petSitterId) {
+        PetSitterDetailResponse petSitterDetailResponse = petSitterService.findPetSitterDetail(petSitterId);
 
+        return ResponseEntity.ok(petSitterDetailResponse);
+    }
 }
