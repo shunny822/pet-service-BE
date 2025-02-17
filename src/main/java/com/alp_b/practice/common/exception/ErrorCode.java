@@ -13,6 +13,7 @@ public enum ErrorCode {
 
     MEMBER_NOT_FOUND(HttpStatus.NOT_FOUND,  "This member is not found"),
     CODE_GROUP_NOT_FOUND(HttpStatus.NOT_FOUND,  "This code group is not found"),
+    CODE_DETAIL_NOT_FOUND(HttpStatus.NOT_FOUND,  "This code detail is not found"),
     DAY_NOT_FOUND(HttpStatus.NOT_FOUND,  "This day of the week is not found"),
     SERVICE_NOT_FOUND(HttpStatus.NOT_FOUND,  "This service is not found"),
 

@@ -40,4 +40,11 @@ public class CodeDetailController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body("Code detail is created successfully.");
     }
+
+    @DeleteMapping("/{codeDetailId}")
+    public ResponseEntity<String> deleteCodeDetail(@PathVariable Integer codeDetailId) {
+        codeDetailService.deleteCodeDetail(codeDetailId);
+
+        return ResponseEntity.ok("Code detail is deleted successfully.");
+    }
 }

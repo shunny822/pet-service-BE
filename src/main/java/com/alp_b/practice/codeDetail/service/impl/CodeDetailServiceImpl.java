@@ -42,4 +42,15 @@ public class CodeDetailServiceImpl implements CodeDetailService {
 
         codeDetailRepository.save(codeDetail);
     }
+
+    @Override
+    public void deleteCodeDetail(Integer codeDetailId) {
+        Optional<CodeDetail> codeDetail = codeDetailRepository.findById(codeDetailId);
+
+        if (codeDetail.isEmpty()) {
+            throw new NotFoundException(ErrorCode.CODE_DETAIL_NOT_FOUND);
+        }
+
+        codeDetailRepository.delete(codeDetail.get());
+    }
 }

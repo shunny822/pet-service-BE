@@ -8,4 +8,5 @@ import java.util.List;
 public interface CodeDetailService {
     List<CodeDetail> findAllCodeDetail(Integer codeGroupId);
     void createCodeDetial(CreateCodeDetailRequest createCodeDetailRequest);
+    void deleteCodeDetail(Integer codeDetailId);
 }
