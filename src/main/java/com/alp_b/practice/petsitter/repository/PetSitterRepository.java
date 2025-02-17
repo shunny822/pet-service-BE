@@ -6,7 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PetSitterRepository extends JpaRepository<PetSitter, Long> {
-//    @Lock(LockModeType.OPTIMISTIC)
-//    @Override
-//    PetSitter save(PetSitter petSitter);
 }
