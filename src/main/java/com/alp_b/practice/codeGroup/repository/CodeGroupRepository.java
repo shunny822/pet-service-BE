@@ -1,6 +1,6 @@
-package com.alp_b.practice.code.repository;
+package com.alp_b.practice.codeGroup.repository;
 
-import com.alp_b.practice.code.domain.CodeGroup;
+import com.alp_b.practice.codeGroup.domain.CodeGroup;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

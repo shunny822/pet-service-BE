@@ -1,8 +1,10 @@
-package com.alp_b.practice.code.domain;
+package com.alp_b.practice.codeGroup.domain;
 
 import com.alp_b.practice.common.jpa.BaseTimeEntity;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -11,15 +13,11 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class CodeDetail extends BaseTimeEntity {
+public class CodeGroup extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer code;
-
-    @NotBlank
-    private String breed;
+    private Integer id;
 
     @NotNull
-    @ManyToOne
-    private CodeGroup codeGroup;
+    private String classification;
 }

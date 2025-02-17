@@ -1,6 +1,6 @@
 package com.alp_b.practice.petsitter.domain;
 
-import com.alp_b.practice.code.domain.CodeGroup;
+import com.alp_b.practice.codeGroup.domain.CodeGroup;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
