@@ -4,8 +4,8 @@ import com.alp_b.practice.common.exception.ErrorCode;
 import com.alp_b.practice.common.exception.custom.NotFoundException;
 import com.alp_b.practice.member.domain.Member;
 import com.alp_b.practice.member.repository.MemberRepository;
-import com.alp_b.practice.pet.domain.PetClassification;
-import com.alp_b.practice.pet.repository.PetClassificationRepository;
+import com.alp_b.practice.code.domain.CodeGroup;
+import com.alp_b.practice.code.repository.CodeGroupRepository;
 import com.alp_b.practice.petsitter.domain.*;
 import com.alp_b.practice.petsitter.dto.CreatePetSitterRequest;
 import com.alp_b.practice.petsitter.repository.*;
@@ -23,7 +23,7 @@ import java.util.Optional;
 public class PetSitterServiceImpl implements PetSitterService {
     private final PetSitterRepository petSitterRepository;
     private final MemberRepository memberRepository;
-    private final PetClassificationRepository petClassificationRepository;
+    private final CodeGroupRepository codeGroupRepository;
     private final PossiblePetTypeRepository possiblePetTypeRepository;
     private final DayOfTheWeekRepository dayOfTheWeekRepository;
     private final PossibleDayRepository possibleDayRepository;
@@ -56,15 +56,15 @@ public class PetSitterServiceImpl implements PetSitterService {
         List<String> services = List.of(createPetSitterRequest.providingServices().split(STR_SEPARATER));
 
         for (String petType : petTypes) {
-            Optional<PetClassification> petClassification = petClassificationRepository.findById(Integer.parseInt(petType));
+            Optional<CodeGroup> codeGroup = codeGroupRepository.findById(Integer.parseInt(petType));
 
-            if (petClassification.isEmpty()) {
+            if (codeGroup.isEmpty()) {
                 throw new NotFoundException(ErrorCode.PET_CLASSIFICATION_NOT_FOUND);
             }
 
             PossiblePetType possiblePetType = PossiblePetType.builder()
                     .petSitter(petSitter)
-                    .petClassification(petClassification.get())
+                    .codeGroup(codeGroup.get())
                     .build();
 
             possiblePetTypeRepository.save(possiblePetType);

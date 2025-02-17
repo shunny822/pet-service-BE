@@ -1,6 +1,6 @@
 package com.alp_b.practice.petsitter.domain;
 
-import com.alp_b.practice.pet.domain.PetClassification;
+import com.alp_b.practice.code.domain.CodeGroup;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
@@ -22,11 +22,11 @@ public class PossiblePetType {
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
-    private PetClassification petClassification;
+    private CodeGroup codeGroup;
 
     @Builder
-    public PossiblePetType(PetSitter petSitter, PetClassification petClassification) {
+    public PossiblePetType(PetSitter petSitter, CodeGroup codeGroup) {
         this.petSitter = petSitter;
-        this.petClassification = petClassification;
+        this.codeGroup = codeGroup;
     }
 }

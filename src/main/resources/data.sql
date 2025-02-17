@@ -13,7 +13,7 @@ values ('월요일'),
        ('토요일'),
        ('일요일');
 
-insert into pet_classification (classification)
+insert into code_group (classification)
 values ('강아지'),
        ('고양이'),
        ('새'),
