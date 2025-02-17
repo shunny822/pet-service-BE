@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -20,4 +21,9 @@ public class CodeGroup extends BaseTimeEntity {
 
     @NotNull
     private String classification;
+
+    @Builder
+    public CodeGroup(String classification) {
+        this.classification = classification;
+    }
 }

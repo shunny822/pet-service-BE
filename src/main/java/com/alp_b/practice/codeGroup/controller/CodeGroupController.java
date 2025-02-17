@@ -3,12 +3,13 @@ package com.alp_b.practice.codeGroup.controller;
 import com.alp_b.practice.codeGroup.domain.CodeGroup;
 import com.alp_b.practice.codeGroup.dto.CodeGroupListResponse;
 import com.alp_b.practice.codeGroup.dto.CodeGroupResponse;
+import com.alp_b.practice.codeGroup.dto.CreateCodeGroupRequest;
 import com.alp_b.practice.codeGroup.service.CodeGroupService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,5 +30,21 @@ public class CodeGroupController {
         }
 
         return ResponseEntity.ok(new CodeGroupListResponse(responses));
+    }
+
+    @PostMapping
+    public ResponseEntity<String> createCodeGroup(
+            @RequestBody @Valid CreateCodeGroupRequest createCodeGroupRequest
+    ) {
+        codeGroupService.createCodeGroup(createCodeGroupRequest);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body("Code group is created successfully.");
+    }
+
+    @DeleteMapping("/{codeGroupId}")
+    public ResponseEntity<String> deleteCodeGroup(@PathVariable Integer codeGroupId) {
+        codeGroupService.deleteCodeGroup(codeGroupId);
+
+        return ResponseEntity.ok("Code group is deleted successfully.");
     }
 }

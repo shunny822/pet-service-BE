@@ -59,7 +59,7 @@ public class PetSitterServiceImpl implements PetSitterService {
             Optional<CodeGroup> codeGroup = codeGroupRepository.findById(Integer.parseInt(petType));
 
             if (codeGroup.isEmpty()) {
-                throw new NotFoundException(ErrorCode.PET_CLASSIFICATION_NOT_FOUND);
+                throw new NotFoundException(ErrorCode.CODE_GROUP_NOT_FOUND);
             }
 
             PossiblePetType possiblePetType = PossiblePetType.builder()
