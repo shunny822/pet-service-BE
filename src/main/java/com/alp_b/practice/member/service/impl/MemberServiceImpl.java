@@ -41,6 +41,7 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Member getMember(Long id) {
         Optional<Member> member = memberRepository.findById(id);
 

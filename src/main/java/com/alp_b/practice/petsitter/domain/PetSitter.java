@@ -41,6 +41,27 @@ public class PetSitter {
     @Version
     private Long version;
 
+    public void setAddress(@NotBlank String address) {
+        this.address = address;
+    }
+
+    public void setStartTime(@NotNull LocalTime startTime) {
+        this.startTime = startTime;
+    }
+
+    public void setEndTime(@NotNull LocalTime endTime) {
+        this.endTime = endTime;
+    }
+
+    public void setPricePerHour(@NotNull Integer pricePerHour) {
+        this.pricePerHour = pricePerHour;
+    }
+
+    // TODO: 관계 테이블 수정
+//    public void updatePossibleDays() {}
+//    public void updatePossiblePetTypes() {}
+//    public void updateProvidingServices() {}
+
     @Builder
     public PetSitter(Long id, Member member, String address, LocalTime startTime, LocalTime endTime, Integer pricePerHour) {
         this.id = id;

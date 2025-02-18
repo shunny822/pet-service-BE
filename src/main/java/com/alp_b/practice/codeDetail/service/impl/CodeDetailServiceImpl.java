@@ -23,6 +23,7 @@ public class CodeDetailServiceImpl implements CodeDetailService {
     private final CodeGroupRepository codeGroupRepository;
 
     @Override
+    @Transactional(readOnly = true)
     public List<CodeDetail> findAllCodeDetail(Integer codeGroupId) {
         return codeDetailRepository.findByCodeGroup_Id(codeGroupId);
     }

@@ -105,6 +105,7 @@ public class PetSitterServiceImpl implements PetSitterService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<PetSitterPreviewResponse> findPetSittersByLocation(String location) {
         List<Tuple> petSitters =  petSitterRepository.findByLocation(location);
 
@@ -120,6 +121,7 @@ public class PetSitterServiceImpl implements PetSitterService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public PetSitterDetailResponse findPetSitterDetail(Long petSitterId) {
         Tuple petSitterDetail = petSitterRepository.findDetailById(petSitterId);
 
@@ -157,6 +159,19 @@ public class PetSitterServiceImpl implements PetSitterService {
                 possibleDayResponses,
                 providingServiceResponses
         );
+    }
+
+    @Override
+    public void updatePetSitter(Long petSitterId, UpdatePetSitterRequest updatePetSitterRequest) {
+        PetSitter petSitter = petSitterRepository.findById(petSitterId)
+                .orElseThrow(() -> new NotFoundException(ErrorCode.PET_SITTER_NOT_FOUND));
+
+        if (updatePetSitterRequest.address() != null) petSitter.setAddress(updatePetSitterRequest.address());
+        if (updatePetSitterRequest.startTime() != null) petSitter.setStartTime(updatePetSitterRequest.startTime());
+        if (updatePetSitterRequest.endTime() != null) petSitter.setEndTime(updatePetSitterRequest.endTime());
+        if (updatePetSitterRequest.pricePerHour() != null) petSitter.setPricePerHour(updatePetSitterRequest.pricePerHour());
+
+        petSitterRepository.save(petSitter);
     }
 
     @Override

@@ -1,9 +1,6 @@
 package com.alp_b.practice.petsitter.controller;
 
-import com.alp_b.practice.petsitter.dto.CreatePetSitterRequest;
-import com.alp_b.practice.petsitter.dto.PetSitterDetailResponse;
-import com.alp_b.practice.petsitter.dto.PetSitterListResponse;
-import com.alp_b.practice.petsitter.dto.PetSitterPreviewResponse;
+import com.alp_b.practice.petsitter.dto.*;
 import com.alp_b.practice.petsitter.service.PetSitterService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -43,6 +40,17 @@ public class PetSitterController {
         PetSitterDetailResponse petSitterDetailResponse = petSitterService.findPetSitterDetail(petSitterId);
 
         return ResponseEntity.ok(petSitterDetailResponse);
+    }
+
+    @PatchMapping("/{petSitterId}")
+    public ResponseEntity<String> updatePetSitter(
+            @PathVariable Long petSitterId,
+            @RequestBody @Valid UpdatePetSitterRequest updatePetSitterRequest
+    ) {
+        petSitterService.updatePetSitter(petSitterId, updatePetSitterRequest);
+        System.out.println(updatePetSitterRequest);
+
+        return ResponseEntity.ok("PetSitter is updated successfully.");
     }
 
     @DeleteMapping("/{petSitterId}")
